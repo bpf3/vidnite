@@ -1,4 +1,4 @@
-name: twoot on a schedule
+name: set profile image
 
 on:
   workflow_dispatch:
