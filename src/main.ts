@@ -17,18 +17,21 @@ const QUEUE_DIR = "queue";
 const DONE_DIR = "done";
 
 async function doTwoot(filename: string): Promise<void> {
-  const results = await twoot({ status: "", media: [{ path: filename }] }, [
-    {
-      type: "mastodon",
-      server: MASTODON_SERVER,
-      token: MASTODON_TOKEN,
-    },
-    {
-      type: "bsky",
-      username: BSKY_USERNAME,
-      password: BSKY_PASSWORD,
-    },
-  ]);
+  const results = await twoot(
+    { status: "", media: [{ path: filename }], visibility: "unlisted" },
+    [
+      {
+        type: "mastodon",
+        server: MASTODON_SERVER,
+        token: MASTODON_TOKEN,
+      },
+      {
+        type: "bsky",
+        username: BSKY_USERNAME,
+        password: BSKY_PASSWORD,
+      },
+    ],
+  );
 
   for (const res of results) {
     switch (res.type) {
