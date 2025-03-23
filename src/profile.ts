@@ -36,7 +36,7 @@ async function setProfileBannerBsky(blob: Blob) {
   await agent.upsertProfile(async (existingProfile) => {
     const existing = existingProfile ?? {};
     const { data } = await agent.uploadBlob(blob);
-    existing.avatar = data.blob;
+    existing.banner = data.blob;
     return existing;
   });
 }
