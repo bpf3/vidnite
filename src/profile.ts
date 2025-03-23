@@ -3,8 +3,8 @@ import { join } from "node:path";
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import { Blob } from "node:buffer";
 
-import { AtpAgent } from "twoot/dist/raw-client/bsky.js";
-import { createClient } from "twoot/dist/raw-client/masto.js";
+import { AtpAgent, type AppBskyActorProfile } from "twoot/raw/bsky";
+import { createClient } from "twoot/raw/masto";
 
 import { close as flushSentry } from "@sentry/node";
 
@@ -34,7 +34,7 @@ async function setProfileBannerBsky(blob: Blob) {
   await agent.login({ identifier: BSKY_USERNAME, password: BSKY_PASSWORD });
 
   await agent.upsertProfile(async (existingProfile) => {
-    const existing = existingProfile ?? {};
+    const existing = existingProfile ?? ({} as AppBskyActorProfile.Record);
     const { data } = await agent.uploadBlob(blob);
     existing.banner = data.blob;
     return existing;

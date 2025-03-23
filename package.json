@@ -21,7 +21,7 @@
   "dependencies": {
     "@sentry/node": "^9.8.0",
     "dotenv": "^16.4.7",
-    "twoot": "0.4.0",
+    "twoot": "0.5.0-esmodules.1",
     "znv": "^0.4.0",
     "zod": "^3.22.2"
   },
