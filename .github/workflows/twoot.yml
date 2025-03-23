@@ -3,7 +3,7 @@ name: twoot on a schedule
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 0,3,6,9,12,15,18,21 * * *"
+    - cron: "21 0,3,6,9,12,15,18,21 * * *"
 
 jobs:
   scheduled:
