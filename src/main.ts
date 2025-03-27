@@ -58,8 +58,12 @@ if (local) {
   console.log("running locally!");
 }
 
+const imageExts = /\.(?:gif|png|jpg|jpeg|webp)$/gi;
+
 async function postFromQueue(): Promise<void> {
-  const queueImages = await readdir(join(PERSIST_DIR, QUEUE_DIR));
+  const queueFiles = await readdir(join(PERSIST_DIR, QUEUE_DIR));
+
+  const queueImages = queueFiles.filter((f) => imageExts.test(f));
 
   if (queueImages.length === 0) {
     console.warn("No images in queue. Exiting.");
