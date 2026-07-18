@@ -2,7 +2,7 @@
   "name": "vidnitebot",
   "private": true,
   "version": "1.0.0",
-  "author": "s <https://github.com/lostfictions>",
+  "author": "mm",
   "license": "AGPL-3.0",
   "description": "a bot that posts on bluesky.",
   "type": "module",

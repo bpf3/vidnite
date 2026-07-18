@@ -66,7 +66,7 @@ async function postFromQueue(): Promise<void> {
   const queueImages = queueFiles.filter((f) => imageExts.test(f));
 
   if (queueImages.length === 0) {
-    console.warn("No images in queue. Exiting.");
+    console.log("No images in queue. Exiting.");
     return;
   }
 
